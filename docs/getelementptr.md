@@ -1,12 +1,12 @@
-## Translation of GEP (getelementptr) into x86 machine code
+# Translation of GEP (getelementptr) into x86 machine code
 
-# Resultant MIR for a GEP:
+## Resultant MIR for a GEP:
 ```
 %104:gr64 = MOV64ri @.base
 ADD64ri32 %104:gr64(tied-def 0), offset, implicit-def $eflags
 ```
 
-# Piece of code performs translation for GEP
+## Piece of code performs translation for GEP
 ```c++
 /* llvm/lib/CodeGen/SelectionDAG/FastISel.cpp */
 
@@ -27,10 +27,10 @@ continue;
 }
 ```
 
-# Beginning of the corresponding function what does the previous code belong to
+## Beginning of the corresponding function what does the previous code belong to
 ```c++
 /* llvm/lib/CodeGen/SelectionDAG/FastISel.cpp */
 
 Register N = getRegForValue(I->getOperand(0));
 ```
-_This call sets a visual register to store the base value if it's not set._
+###_This call sets a visual register to store the base value if it's not set._
